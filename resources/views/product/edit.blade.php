@@ -19,12 +19,23 @@
                             <div class="mb-3">
                                 <label for="name" class="form-label">Tên sản phẩm</label>
                                 <input value="{{ $product->name }}" type="text" class="form-control" id="name" name="name" placeholder="Nhập tên sản phẩm">
+                                @error('name')
+                                    @if ($message)
+                                        <div class="text-danger">{{ $message }}</div>
+                                    @endif
+
+                                @enderror
                             </div>
                         </div>
                         <div class="col">
                             <div class="mb-3">
                                 <label for="price" class="form-label">Giá sản phẩm</label>
                                 <input value="{{ $product->price }}" type="number" class="form-control" id="price" name="price" placeholder="Nhập giá sản phẩm">
+                                @error('price')
+                                    @if ($message)
+                                        <div class="text-danger">{{ $message }}</div>
+                                    @endif
+                                @enderror
                             </div>
                         </div>
                     </div>
@@ -34,12 +45,19 @@
                                 <label for="image" class="form-label">Ảnh sản phẩm cũ</label> <br>
                                 <img width="150px" src="{{ asset('images/'.$product->image) }}" alt="">
                                 <input value="{{ $product->image }}" type="hidden" class="form-control " id="image_old" name="image_old">
+
                             </div>
                         </div>
                         <div class="col">
                             <div class="mb-3">
                                 <label for="" class="form-label">Mô tả sản phẩm</label>
                                 <input value="{{ $product->description }}" type="text" name="description" class="form-control" placeholder="Mô tả sản phẩm">
+                                @error('description')
+                                    @if ($message)
+                                        <div class="text-danger">{{ $message }}</div>
+                                    @endif
+                                @enderror
+
                             </div>
                         </div>
                     </div>
@@ -56,7 +74,7 @@
                     </div>
                     <div class="row">
                         <div class="col">
-                            <button class="btn btn-primary" type="submit">Save</button>
+                            <button class="btn btn-primary" type="submit">Lưu</button>
                         </div>
                     </div>
                 </form>
